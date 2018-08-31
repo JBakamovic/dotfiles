@@ -86,6 +86,11 @@ nnoremap    <C-h>       :promptrepl<CR>                                     |" O
 nnoremap    <CR>        :let @/ = ""<CR><CR>                                |" Clear highlighted text occurences
 
 "
+" Make quickfix/location list occupy the full width
+"
+autocmd filetype qf wincmd J
+
+"
 " Airline
 "
 set laststatus=2
