@@ -91,12 +91,6 @@ nnoremap    <CR>        :let @/ = ""<CR><CR>                                |" C
 autocmd filetype qf wincmd J
 
 "
-" Automatically highlight word occurences on cursor hold
-"
-let g:editor_auto_highlight_word_occurences = v:true
-let g:editor_auto_highlight_word_occurences_after_ms = 500
-
-"
 " Airline
 "
 set laststatus=2
@@ -115,24 +109,13 @@ let g:NERDTreeMouseMode = 2                                 " Single-click to ex
 let g:NERDTreeShowHidden = 1                                " Show hidden files
 
 "
-" Utility functions
+" Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
-function! Utility_ToggleAutoHighlight(on)
-    let @/ = ''
-    if a:on
-        augroup auto_highlight
-            au!
-            au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-        augroup end
-        let &updatetime=g:editor_auto_highlight_word_occurences_after_ms
+function! HighlightWordUnderCursor()
+    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+        exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
     else
-        au! auto_highlight
-        augroup! auto_highlight
-        setl updatetime=4000
+        match none
     endif
 endfunction
-
-"
-" Toggle auto highlighting of word occurences
-"
-call Utility_ToggleAutoHighlight(g:editor_auto_highlight_word_occurences)
+autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
