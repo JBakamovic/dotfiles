@@ -95,6 +95,7 @@ autocmd filetype qf wincmd J
 "
 set laststatus=2
 let g:airline_theme = 'alduin'                              " Select a theme
+let g:airline_powerline_fonts = 1                           " Enable powerline fonts
 let g:airline_inactive_collapse = 0                         " Do not collapse the status line while having multiple windows
 let g:airline#extensions#whitespace#enabled = 0             " Do not check for whitespaces
 let g:airline#extensions#tabline#enabled = 1                " Display tab bar with buffers
