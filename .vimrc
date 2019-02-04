@@ -27,6 +27,9 @@ if has("gui_running")                                                       " Tw
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9                       " Set the font
     set lines=999 columns=999                                               " Run maximized
 endif
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor                                    " Use ag (the silver searcher) over grep if one exists on the system
+endif
 
 "
 " Plugin selection
