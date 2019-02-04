@@ -48,6 +48,7 @@ call vundle#begin()
     Plugin 'airblade/vim-gitgutter'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'pboettch/vim-cmake-syntax'
+    Plugin 'jreybert/vimagit'
 call vundle#end()
 filetype plugin indent on                                                   " Turn it back on
 
@@ -126,6 +127,12 @@ let g:ctrlp_max_height = 100                                " CtrlPBuffer presen
                                                             " Setting this value to 100 basically forces CtrlPBuffer to show all active buffers.
                                                             " 'ctrlp_match_window' is supposed to have this, unlimited, option but I couldn't get
                                                             " it working.
+
+"
+" Magit
+"
+let g:magit_discard_untracked_do_delete = 1                 " Discard untracked files with DDD
+let g:airline#extensions#vimagit#enabled = 1                " Enable airline support
 
 "
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
