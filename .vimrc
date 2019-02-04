@@ -115,6 +115,13 @@ let g:NERDTreeMouseMode = 2                                 " Single-click to ex
 let g:NERDTreeShowHidden = 1                                " Show hidden files
 
 "
+" CtrlP
+"
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'   " Use ag (the silver searcher) if one exists on the system. It is much faster.
+endif
+let g:ctrlp_use_caching = 1                                 " Enable CtrlP cache
+"
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
 function! HighlightWordUnderCursor()
