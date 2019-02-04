@@ -24,6 +24,7 @@ set nowritebackup
 set noequalalways                                                           " Do not maintain window-size ratio (when having multiple window splits I don't find it desirable)
 if has("gui_running")                                                       " Tweak some settings when running in GUI
     set guioptions=aeir                                                     " Minimize UI clutter. Enable vertical scrollbar.
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9                       " Set the font
     set lines=999 columns=999                                               " Run maximized
 endif
 
