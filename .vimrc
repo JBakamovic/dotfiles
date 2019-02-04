@@ -44,6 +44,7 @@ call vundle#begin()
     Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'pboettch/vim-cmake-syntax'
 call vundle#end()
 filetype plugin indent on                                                   " Turn it back on
 
