@@ -121,6 +121,12 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'   " Use ag (the silver searcher) if one exists on the system. It is much faster.
 endif
 let g:ctrlp_use_caching = 1                                 " Enable CtrlP cache
+let g:ctrlp_max_height = 100                                " CtrlPBuffer presents us only 10 buffers by default (in most cases this is not
+                                                            " enough if we want to see or be able to traverse through all of the active buffers).
+                                                            " Setting this value to 100 basically forces CtrlPBuffer to show all active buffers.
+                                                            " 'ctrlp_match_window' is supposed to have this, unlimited, option but I couldn't get
+                                                            " it working.
+
 "
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
