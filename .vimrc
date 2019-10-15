@@ -7,6 +7,7 @@ syntax on                                                                   " Tu
 set enc=utf-8                                                               " Set UTF-8 encoding
 set fenc=utf-8
 set termencoding=utf-8
+set mousemodel=popup
 set autoindent                                                              " Use indentation of previous line
 set smartindent                                                             " Use intelligent indentation for C
 set tabstop=4                                                               " Tab width is 4 spaces
