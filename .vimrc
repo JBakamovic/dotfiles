@@ -51,6 +51,7 @@ call vundle#begin()
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'pboettch/vim-cmake-syntax'
     Plugin 'jreybert/vimagit'
+    Plugin 'vimwiki/vimwiki'
 call vundle#end()
 filetype plugin indent on                                                   " Turn it back on
 
