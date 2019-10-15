@@ -8,6 +8,7 @@ set enc=utf-8                                                               " Se
 set fenc=utf-8
 set termencoding=utf-8
 set mousemodel=popup
+set autoread                                                                " Auto-reload the file that has been changed from the outside
 set autoindent                                                              " Use indentation of previous line
 set smartindent                                                             " Use intelligent indentation for C
 set tabstop=4                                                               " Tab width is 4 spaces
