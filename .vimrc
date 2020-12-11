@@ -97,6 +97,7 @@ inoremap    <C-R>       <C-O><C-R>
 nnoremap    <C-f>       :promptfind<CR>                                     |" Open find dialog
 nnoremap    <C-h>       :promptrepl<CR>                                     |" Open find & replace dialog
 nnoremap    <CR>        :let @/ = ""<CR><CR>                                |" Clear highlighted text occurences
+nnoremap    <C-CR>      :Ggrep <cword><CR>                                  |" Utilize git-grep to search for current word
 nnoremap    <C-Space>   :call QuickFixWindowToggle()<CR>                    |" Toggle quick-fix window
 nnoremap    <S-Space>   :call LocationListWindowToggle(winnr())<CR>         |" Toggle location-list window
 
