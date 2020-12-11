@@ -164,6 +164,42 @@ function! QuickFixWindowToggle()
     execute "copen"
   endif
 endfunction
+
+"
+" Check if location-list window is already opened for given window nr.
+"
+function! LocationListWindowOpened(win_nr)
+    return get(getloclist(0, {'winid':0}), 'winid', 0) != 0
+endfunction
+
+"
+" Open location-list window.
+" Swallow E42 and E776 exceptions (No errors, No location list)
+"
+function! LocationListOpen()
+    try
+        execute "lopen"
+    catch /:E553:/
+    return v:false
+    catch /:E\%(42\|776\):/
+        return v:false
+    catch /.*/
+        echo v:exception
+        return v:false
+    endtry
+    return v:true
+endfunction
+
+"
+" Toggle location-list window
+"
+function! LocationListWindowToggle(win_nr)
+  if LocationListWindowOpened(a:win_nr)
+    lclose
+  else
+    call LocationListOpen()
+  endif
+endfunction
 "
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
