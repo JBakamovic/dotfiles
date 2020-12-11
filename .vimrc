@@ -203,6 +203,41 @@ function! LocationListWindowToggle(win_nr)
     call LocationListOpen()
   endif
 endfunction
+
+"
+" Find and replace utility implemented through the means of find and sed.
+"
+function! FindAndReplaceImpl(dir, current, new)
+    let cmd = "!find " . a:dir . " -type f -exec sed -i -e 's/" . a:current . "/" . a:new . "/g' {} \\\;"
+    call execute(cmd)
+endfunction
+
+"
+" Find and replace wrapper.
+"
+" It mostly exists because of the inability to unwrap <f-args> without having a function.
+" Other than that, it serves the purpose of handling different use-cases one may find handy, such as:
+"   1. In given directory, replace current word under cursor with some arbitrary text.
+"   2. In given directory, replace current word under cursor with the same word but prefixed with
+"      the given arbitrary text.
+"   3. In given directory, replace current word under cursor with the same word but suffixed with
+"      the given arbitrary text.
+"   4. In given directory, replace arbitrary text with some other arbitrary text.
+"
+" See FindAndReplace* commands for proper usage.
+function! FindAndReplace(curr_word, prefix, suffix, ...)
+    if a:curr_word
+        if a:prefix
+            call FindAndReplaceImpl(a:1, expand('<cword>'), a:2 . expand('<cword>'))
+        elseif a:suffix
+            call FindAndReplaceImpl(a:1, expand('<cword>'), expand('<cword>') . a:2)
+        else
+            call FindAndReplaceImpl(a:1, expand('<cword>'), a:2)
+        endif
+    else
+        call FindAndReplaceImpl(a:1, a:2, a:3)
+    endif
+endfunction
 "
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
