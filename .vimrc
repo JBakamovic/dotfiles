@@ -238,6 +238,15 @@ function! FindAndReplace(curr_word, prefix, suffix, ...)
         call FindAndReplaceImpl(a:1, a:2, a:3)
     endif
 endfunction
+
+"
+" Different actions that can be done with find-and-replace mechanism.
+"
+:command -nargs=+ -complete=dir FindAndReplace                  :call FindAndReplace(v:false, v:false, v:false, <f-args>)
+:command -nargs=+ -complete=dir FindAndReplaceCurrWord          :call FindAndReplace(v:true, v:false, v:false, <f-args>)
+:command -nargs=+ -complete=dir FindAndReplaceCurrWordWithPre   :call FindAndReplace(v:true, v:true, v:false, <f-args>)
+:command -nargs=+ -complete=dir FindAndReplaceCurrWordWithSuf   :call FindAndReplace(v:true, v:false, v:true, <f-args>)
+
 "
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
