@@ -32,6 +32,10 @@ endif
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor                                    " Use ag (the silver searcher) over grep if one exists on the system
 endif
+set list                                                                    " Use listchars to show trailing spaces, tabs, eols etc.
+set listchars+=trail:·
+set listchars+=tab:»·
+set listchars+=eol:¬
 
 "
 " Plugin selection
