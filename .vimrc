@@ -141,6 +141,29 @@ let g:ctrlp_max_height = 100                                " CtrlPBuffer presen
 let g:magit_discard_untracked_do_delete = 1                 " Discard untracked files with DDD
 let g:airline#extensions#vimagit#enabled = 1                " Enable airline support
 
+
+"
+" Check if quick-fix window is already opened
+"
+function! QuickFixWindowOpened()
+    for winnr in range(1, winnr('$'))
+        if getwinvar(winnr, '&syntax') == 'qf'
+            return v:true
+        endif
+    endfor
+    return v:false
+endfunction
+
+"
+" Toggle quick-fix window
+"
+function! QuickFixWindowToggle()
+  if QuickFixWindowOpened()
+    cclose
+  else
+    execute "copen"
+  endif
+endfunction
 "
 " Auto-highlight words under the cursor (credits go to: https://stackoverflow.com/a/25233145)
 "
