@@ -98,6 +98,7 @@ nnoremap    <C-f>       :promptfind<CR>                                     |" O
 nnoremap    <C-h>       :promptrepl<CR>                                     |" Open find & replace dialog
 nnoremap    <CR>        :let @/ = ""<CR><CR>                                |" Clear highlighted text occurences
 nnoremap    <C-Space>   :call QuickFixWindowToggle()<CR>                    |" Toggle quick-fix window
+nnoremap    <S-Space>   :call LocationListWindowToggle(winnr())<CR>         |" Toggle location-list window
 
 "
 " Make quickfix/location list occupy the full width
