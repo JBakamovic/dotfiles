@@ -100,6 +100,7 @@ nnoremap    <CR>        :let @/ = ""<CR><CR>                                |" C
 nnoremap    <C-CR>      :Ggrep <cword><CR>                                  |" Utilize git-grep to search for current word
 nnoremap    <C-Space>   :call QuickFixWindowToggle()<CR>                    |" Toggle quick-fix window
 nnoremap    <S-Space>   :call LocationListWindowToggle(winnr())<CR>         |" Toggle location-list window
+nnoremap    <F2>        :NERDTreeToggle<CR>                                 |" Toggle NERDTree window
 
 "
 " Make quickfix/location list occupy the full width
