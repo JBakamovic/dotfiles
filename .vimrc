@@ -46,6 +46,7 @@ call vundle#begin()
     Plugin 'JBakamovic/vim-project-manager'
     Plugin 'JBakamovic/cxxd-vim'
     Plugin 'JBakamovic/yaflandia'
+    Plugin 'cxxd-colors'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
@@ -54,6 +55,7 @@ call vundle#begin()
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'pboettch/vim-cmake-syntax'
     Plugin 'vimwiki/vimwiki'
+    Plugin 'shirk/vim-gas'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plugin 'junegunn/fzf.vim'
 call vundle#end()
@@ -62,7 +64,7 @@ filetype plugin indent on                                                   " Tu
 "
 " Set my favorite colorscheme
 "
-colorscheme yaflandia
+colorscheme cxxd-slate
 
 "
 " Key mappings
