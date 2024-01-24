@@ -53,7 +53,6 @@ call vundle#begin()
     Plugin 'airblade/vim-gitgutter'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'pboettch/vim-cmake-syntax'
-    Plugin 'jreybert/vimagit'
     Plugin 'vimwiki/vimwiki'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plugin 'junegunn/fzf.vim'
