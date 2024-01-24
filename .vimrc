@@ -46,7 +46,6 @@ call vundle#begin()
     Plugin 'JBakamovic/vim-project-manager'
     Plugin 'JBakamovic/cxxd-vim'
     Plugin 'JBakamovic/yaflandia'
-    Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
@@ -56,6 +55,8 @@ call vundle#begin()
     Plugin 'pboettch/vim-cmake-syntax'
     Plugin 'jreybert/vimagit'
     Plugin 'vimwiki/vimwiki'
+    Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plugin 'junegunn/fzf.vim'
 call vundle#end()
 filetype plugin indent on                                                   " Turn it back on
 
@@ -101,6 +102,12 @@ nnoremap    <C-CR>      :Ggrep <cword><CR>                                  |" U
 nnoremap    <C-Space>   :call QuickFixWindowToggle()<CR>                    |" Toggle quick-fix window
 nnoremap    <S-Space>   :call LocationListWindowToggle(winnr())<CR>         |" Toggle location-list window
 nnoremap    <F2>        :NERDTreeToggle<CR>                                 |" Toggle NERDTree window
+" FZF
+nnoremap    <C-P>       :FzFiles<CR>
+nnoremap    <C-M-P>     :FzGitFiles<CR>
+nnoremap    <C-M-B>     :FzBuffers<CR>
+nnoremap    <C-M-CR>    :FzRg <C-R><C-W><CR>
+nnoremap    <C-M-Space> :FzBCommits<CR>
 
 "
 " Make quickfix/location list occupy the full width
@@ -127,17 +134,10 @@ let g:NERDTreeMouseMode = 2                                 " Single-click to ex
 let g:NERDTreeShowHidden = 1                                " Show hidden files
 
 "
-" CtrlP
+" fzf
 "
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'   " Use ag (the silver searcher) if one exists on the system. It is much faster.
-endif
-let g:ctrlp_use_caching = 1                                 " Enable CtrlP cache
-let g:ctrlp_max_height = 100                                " CtrlPBuffer presents us only 10 buffers by default (in most cases this is not
-                                                            " enough if we want to see or be able to traverse through all of the active buffers).
-                                                            " Setting this value to 100 basically forces CtrlPBuffer to show all active buffers.
-                                                            " 'ctrlp_match_window' is supposed to have this, unlimited, option but I couldn't get
-                                                            " it working.
+let g:fzf_vim = {}
+let g:fzf_vim.command_prefix = 'Fz'
 
 "
 " Magit
